@@ -76,11 +76,21 @@ section {
     color: #2ecc71;
 }
 
-.icon-big {
+.icon {
     color: #2ecc71;
+}
+
+.icon-big {
+    
     font-size: 320%;
     display: block;
     margin-bottom: 10px;
+}
+
+.icon-small {
+    font-size: 220%;
+    margin: 0;
+    height:25px;
 }
 
 .clearfix:after {
@@ -316,7 +326,7 @@ input[type=submit] {
 
 .header-row,
 .search-result-row {
-        padding: 15px 20px;
+        padding: 10px 20px;
 }
 
 .header-row h4 {
@@ -327,10 +337,16 @@ input[type=submit] {
 
 .search-result-row {
     margin-bottom: 15px;
-/*    border: 2px solid #2ecc71;*/
     border-radius: 10px;
     background-color: #d4d4d4;
     box-shadow: 0 2px 2px #efefef;
+    position: relative;
+}
+
+.search-result-row h4 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* -------------------------------------------------- */
