@@ -31,6 +31,16 @@ section {
     padding: 80px 0;
 }
 
+.container {
+    width: 80%;
+/*    height: 95%;*/
+    margin: auto;
+/*
+    border: 1px solid #ccc;
+    border-radius: 5px;
+*/
+}
+
 .box {
     padding: 1%;
 }
@@ -40,6 +50,32 @@ section {
     line-height: 145%;
 }
 
+.front-box {
+    display: inline-block;
+}
+
+.small-logo-box {
+    position: relative;
+    top: 20px;
+    left: 2%;
+}
+
+.small-logo-box img {
+    height: 35px;
+    border-radius: 5px;
+    position: absolute;
+    margin-right: 8px;
+    margin-top: -6px;
+}
+
+.small-logo-box span {
+    height: 35px;
+    font-size: 90%;
+    position: absolute;
+    left: 42px;
+    color: #2ecc71;
+}
+
 .icon-big {
     color: #2ecc71;
     font-size: 320%;
@@ -47,13 +83,10 @@ section {
     margin-bottom: 10px;
 }
 
-.clearfix {zoom: 1}
 .clearfix:after {
-    content: ".";
+    content: "";
+    display: table;
     clear: both;
-    display: block;
-    height: 0;
-    visibility: hidden;
 }
 
 /* ----- LINKS ----- */
@@ -155,11 +188,6 @@ header {
 */
 }
 
-.logo {
-    height: 150px;
-    
-}
-
 .hero-text-box {
     position: absolute;
 /*
@@ -174,9 +202,26 @@ header {
     text-align: center;
 }
 
+.hero-text-box h1 {
+    position: absolute;
+    height: 130px;
+    top: 50%;
+    margin-top: -75px;
+    right: 10%;
+}
+
+.front-logo {
+    height: 130px;
+    float: left;
+    margin-left: 10%;
+    border-radius: 12px;
+}
+
+
 .hero-text-box p {
     color: #fff;
     font-size: 140%;
+    margin-top: 35px;
 }
 
 .down-arrow {
@@ -262,14 +307,35 @@ input[type=submit] {
 }
 
 /* -------------------------------------------------- */
-/* LIVE CONNECTION */
+/* SEARCH RESULTS */
 /* -------------------------------------------------- */
 
-/*
-.genomic-content,
-.sidebar {
+.section-results {
+    background-color: #f4f4f4;
 }
-*/
+
+.header-row,
+.search-result-row {
+        padding: 15px 20px;
+}
+
+.header-row h4 {
+    color: #2ecc71;
+    font-size: 110%;
+    margin-bottom: 10px;
+}
+
+.search-result-row {
+    margin-bottom: 15px;
+/*    border: 2px solid #2ecc71;*/
+    border-radius: 10px;
+    background-color: #d4d4d4;
+    box-shadow: 0 2px 2px #efefef;
+}
+
+/* -------------------------------------------------- */
+/* LIVE CONNECTION */
+/* -------------------------------------------------- */
 
 .genomic-content {
     width:75%;
@@ -282,15 +348,8 @@ input[type=submit] {
     float: left;
 }
 
-.row-header {
+header-row {
+    font-size: 120%;
     font-weight: bold;
-}
-
-.container {
-    width: 95%;
-    height: 95%;
-    margin: auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
