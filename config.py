@@ -1,0 +1,8 @@
+AUTH_CODE = GzBNqDBfNRMvzKqs3DQi1PcIWSGc8s
+
+
+curl -X POST -d "client_id=4VZK1tAlsGsX9ZKiz9joKPrMG0RNlE9RgmRRq22k&client_secret=LrJOsChTOUBoi86MZ0MH1paMxIxlNyFs5CW9LPHwT5DENlP2pFnGPDUoOJkwSgDiDikRtxNDRUl7o1jzP82MmCopndnPhCfc6vMzbUYDoRL2CGYIMIFARghNoFdugSaK&grant_type=authorization_code&code=5msSy6QJKEir518a9GepzAeIuuoBwb&redirect_uri=http://127.0.0.1:5000/callback" https://genomelink.io/oauth/token
+
+ACCESS_TOKEN = UFyNOYqbqlmd2lKICDbb0w2CX6UNK3
+client_secret = LrJOsChTOUBoi86MZ0MH1paMxIxlNyFs5CW9LPHwT5DENlP2pFnGPDUoOJkwSgDiDikRtxNDRUl7o1jzP82MmCopndnPhCfc6vMzbUYDoRL2CGYIMIFARghNoFdugSaK
+client_id = 4VZK1tAlsGsX9ZKiz9joKPrMG0RNlE9RgmRRq22k
