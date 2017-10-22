@@ -89,8 +89,12 @@ section {
 
 .icon-small {
     font-size: 220%;
-    margin: 0;
+    margin: 0 16px 0 0;
     height:25px;
+}
+
+.icon-small:last-child {
+    margin:0;
 }
 
 .clearfix:after {

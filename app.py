@@ -68,7 +68,7 @@ def video():
 def callback():
     token = genomelink.OAuth.token(request_url=request.url)
     session['oauth_token'] = token
-    return redirect(url_for('index'))
+    return redirect(url_for(''))
 
 if __name__ == '__main__':
     # This allows us to use a plain HTTP callback.
