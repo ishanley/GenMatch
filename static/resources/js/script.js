@@ -1,6 +1,12 @@
 $(document).ready(function() {
-    
-    console.log('fuck')
+    $('.call-sms').click(function(event) {
+      console.log('emitting');
+      var socket = io.connect('http://localhost:5000');
+      socket.on('connect', function() {
+        socket.emit('my event')
+      });
+    });
+
     // Select all links with hashes
     $('a[href*="#"]')
       // Remove links that don't actually link to anything
@@ -12,10 +18,10 @@ $(document).ready(function() {
           location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
           && 
           location.hostname == this.hostname
-        ) {
+          ) {
           // Figure out element to scroll to
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
           // Does a scroll target exist?
           if (target.length) {
             // Only prevent default if animation is actually gonna happen
@@ -37,4 +43,4 @@ $(document).ready(function() {
           }
         }
       });
-});
+    });

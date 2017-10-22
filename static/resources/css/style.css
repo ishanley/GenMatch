@@ -56,7 +56,7 @@ section {
 
 .small-logo-box {
     position: relative;
-    top: 20px;
+    top: 30px;
     left: 2%;
 }
 
@@ -89,7 +89,7 @@ section {
 
 .icon-small {
     font-size: 220%;
-    margin: 0 7px;
+    margin: 0 10px;
     height:25px;
 }
 
