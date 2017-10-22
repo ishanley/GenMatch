@@ -100,22 +100,18 @@ section {
 }
 
 /* ----- LINKS ----- */
-/*
+
 a:link,
 a:visited {
     color: #2ecc71;
     text-decoration: none;
+/*
     border-bottom: 1px solid #2ecc71;
     padding-bottom: 1px;
+*/
     -webkit-transition: color 0.2s, border-bottom 0.2s;
     transition: color 0.2s, border-bottom 0.2s;
 }
-
-a:hover,
-a:active {
-    color: #555;
-    border-bottom: 1px solid transparent;
-}*/
 
 a {
     text-decoration: none;
@@ -168,6 +164,20 @@ input[type=submit]:active {
     border: 1px solid #28b062;
     color: #fff;
 }
+
+.btn-ghost-white:link,
+.btn-ghost-white:visited {
+    border: 1px solid #e5e5e5;
+    color: #e5e5e5;
+}
+
+/*
+.btn-ghost-white:hover,
+.btn-ghost-white:active {
+    border: 1px solid #28b062;
+    color: #fff;
+}
+*/
 
 /* ----- Paragraphs ------ */
 .long-copy {
@@ -326,7 +336,8 @@ input[type=submit] {
 
 .header-row,
 .search-result-row {
-        padding: 10px 20px;
+    padding: 6px 20px;
+    text-align: center;
 }
 
 .header-row h4 {
@@ -340,13 +351,21 @@ input[type=submit] {
     border-radius: 10px;
     background-color: #d4d4d4;
     box-shadow: 0 2px 2px #efefef;
-    position: relative;
+/*    position: relative;*/
+}
+
+.search-name {
+    text-align: left;
 }
 
 .search-result-row h4 {
+    height: 50px;
+    line-height: 50px;
+/*
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+*/
 }
 
 /* -------------------------------------------------- */

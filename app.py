@@ -1,8 +1,9 @@
 import genomelink
 import os
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import Flask, render_template, request, redirect, session, url_for, jsonify
 from twilio.jwt.access_token import AccessToken
 from twilio.jwt.access_token.grants import VideoGrant
+from randomname import random_user
 app = Flask(__name__)
 
 #print(os.environ['GENOMELINK_CLIENT_ID'])
@@ -19,42 +20,49 @@ os.environ['GENOMELINK_CALLBACK_URL'] = "http://127.0.0.1:5000/callback"
 def index():
     return render_template('index.html')
 
-@app.route('/search', methods=['POST'])
+@app.route('/search', methods=['get', 'post'])
 def search():
     # get all the form properties
-    redirect(url_for('search_results'))
+    if request.method == 'post':
+        name = request.form.get('name')
+        phone = request.form.get('phone')
+        typ = request.form.get('type')
+        opp = request.form.get('opp')
+        reports = reports
+    return render_template('search.html')
 
 @app.route('/twilio')
-def video():
-    scat = AccessToken(app.config['TWILIO_ACCOUNT_SID'], \
-        app.config['TWILIO_API_KEY'], app.config['TWILIO_API_SECRET'])
-    scat.add_grant(VideoGrant(room='RM123'))
-    token = scat.to_jwt()
-    return render_template('twilio.html', identity="need random", token=token)
-    
-    # authorize_url = genomelink.OAuth.authorize_url(scope=['report:eye-color report:beard-thickness report:morning-person report:childhood-intelligence']) #report:beard-thickness report:morning-person
-    #
-    #
-    # # Fetching a protected resource using an OAuth2 token if exists.
-    # reports = []
-    # if session.get('oauth_token'):
-    #     for name in ['eye-color', 'beard-thickness', 'morning-person', 'childhood-intelligence']:
-    #         reports.append(genomelink.Report.fetch(name=name, population='european', token=session['oauth_token']))
-    #
-    # return render_template('index.html', authorize_url=authorize_url, reports=reports)
+def twilio():
+    return render_template('twilio.html')
 
-# @app.route('/callback')
-# def callback():
-#     # The user has been redirected back from the provider to your registered
-#     # callback URL. With this redirection comes an authorization code included
-#     # in the request URL. We will use that to obtain an access token.
-#     token = genomelink.OAuth.token(request_url=request.url)
+@app.route('/twilio_token')
+def video():
+    identity = random_user()
+    scat = AccessToken(app.config['TWILIO_ACCOUNT_SID'], \
+        app.config['TWILIO_API_KEY'], app.config['TWILIO_API_SECRET'], identity=identity)
+    scat.add_grant(VideoGrant(room="Room1"))
+    token = scat.to_jwt()
+    value = str(token)
+    value2 = value[2:-1]
+    return jsonify(dict(identity=identity, token=value2))
+
+@app.route('/callback')
+def callback():
+    token = genomelink.OAuth.token(request_url=request.url)
+    session['oauth_token'] = token
+    return redirect(url_for('index'))
+
+# authorize_url = genomelink.OAuth.authorize_url(scope=['report:eye-color report:beard-thickness report:morning-person report:childhood-intelligence']) #report:beard-thickness report:morning-person
 #
-#     # At this point you can fetch protected resources but lets save
-#     # the token and show how this is done from a persisted token in index page.
-#     session['oauth_token'] = token
-#     return redirect(url_for('index'))
 #
+# # Fetching a protected resource using an OAuth2 token if exists.
+# reports = []
+# if session.get('oauth_token'):
+#     for name in ['eye-color', 'beard-thickness', 'morning-person', 'childhood-intelligence']:
+#         reports.append(genomelink.Report.fetch(name=name, population='european', token=session['oauth_token']))
+#
+# return render_template('index.html', authorize_url=authorize_url, reports=reports)
+
 if __name__ == '__main__':
     # This allows us to use a plain HTTP callback.
     import os
