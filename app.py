@@ -5,6 +5,8 @@ from twilio.jwt.access_token import AccessToken
 from twilio.jwt.access_token.grants import VideoGrant
 from randomname import random_user
 from docusign import docusign
+from flask_socketio import SocketIO
+from send_sms import send_sms
 
 import traits
 
@@ -14,6 +16,7 @@ app = Flask(__name__)
 #print(os.environ['GENOMELINK_CLIENT_SECRET'])
 
 app.config.from_pyfile('config.py')
+socketio = SocketIO(app)
 
 
 os.environ['GENOMELINK_CLIENT_ID'] = '4VZK1tAlsGsX9ZKiz9joKPrMG0RNlE9RgmRRq22k'
@@ -45,9 +48,9 @@ def search():
             for name in ['eye-color', 'beard-thickness', 'morning-person', 'childhood-intelligence']:
                 p1.append(genomelink.Report.fetch(name=name, population='european', token=session['oauth_token']))
 
-    #    return render_template('search.html', reports=traits.get_reports(p1))
+    return render_template('search.html')
 
-    return render_template('search.html', reports=get_reports(p1, trait_type))
+    #return render_template('search.html', reports=get_reports(p1, trait_type))
 
 @app.route('/twilio')
 def twilio():
@@ -64,6 +67,11 @@ def video():
     value2 = value[2:-1]
     return jsonify(dict(identity=identity, token=value2))
 
+@socketio.on('my event')
+def handle_my_custom_event():
+    print("send")
+    send_sms()
+
 @app.route('/callback')
 def callback():
     token = genomelink.OAuth.token(request_url=request.url)
@@ -78,4 +86,5 @@ if __name__ == '__main__':
 
     # Run local server on port 5000.
     app.secret_key = os.urandom(24)
-    app.run(debug=True)
+    #app.run(debug=True)
+    socketio.run(app)
