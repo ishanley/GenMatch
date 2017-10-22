@@ -83,7 +83,7 @@ function roomJoined(room) {
 
   log("Joined as '" + identity + "'");
   document.getElementById('button-join').style.display = 'none';
-  document.getElementById('button-leave').style.display = 'inline';
+  document.getElementById('button-leave').style.display = 'inline-block';
 
   // Attach LocalParticipant's Tracks, if not already attached.
   var previewContainer = document.getElementById('local-media');
@@ -134,7 +134,7 @@ function roomJoined(room) {
     detachParticipantTracks(room.localParticipant);
     room.participants.forEach(detachParticipantTracks);
     activeRoom = null;
-    document.getElementById('button-join').style.display = 'inline';
+    document.getElementById('button-join').style.display = 'inline-block';
     document.getElementById('button-leave').style.display = 'none';
   });
 }

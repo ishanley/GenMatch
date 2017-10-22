@@ -128,7 +128,7 @@ input[type=submit] {
     text-decoration: none;
     border-radius: 200px;
     color: #fff;
-    -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
+/*    -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;*/
     transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 
@@ -139,7 +139,7 @@ input[type=submit] {
 
 .btn-full:link,
 .btn-full:visited,
-input[type=submit]{
+input[type=submit] {
     background-color: #2ecc71;
     border: 1px solid #2ecc71;
     margin-right: 15px;
@@ -165,11 +165,13 @@ input[type=submit]:active {
     color: #fff;
 }
 
+/*
 .btn-ghost-white:link,
 .btn-ghost-white:visited {
     border: 1px solid #e5e5e5;
     color: #e5e5e5;
 }
+*/
 
 /*
 .btn-ghost-white:hover,
