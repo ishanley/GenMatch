@@ -1,4 +1,3 @@
-import genomelink
 import os
 from flask import Flask, render_template, request, redirect, session, url_for, jsonify
 from operator import attrgetter
@@ -19,9 +18,9 @@ app.config.from_pyfile('config.py')
 socketio = SocketIO(app)
 
 
-os.environ['GENOMELINK_CLIENT_ID'] = '4VZK1tAlsGsX9ZKiz9joKPrMG0RNlE9RgmRRq22k'
-os.environ['GENOMELINK_CLIENT_SECRET'] = 'LrJOsChTOUBoi86MZ0MH1paMxIxlNyFs5CW9LPHwT5DENlP2pFnGPDUoOJkwSgDiDikRtxNDRUl7o1jzP82MmCopndnPhCfc6vMzbUYDoRL2CGYIMIFARghNoFdugSaK'
-os.environ['GENOMELINK_CALLBACK_URL'] = "http://127.0.0.1:5000/callback"
+#os.environ['GENOMELINK_CLIENT_ID'] = '4VZK1tAlsGsX9ZKiz9joKPrMG0RNlE9RgmRRq22k'
+#os.environ['GENOMELINK_CLIENT_SECRET'] = 'LrJOsChTOUBoi86MZ0MH1paMxIxlNyFs5CW9LPHwT5DENlP2pFnGPDUoOJkwSgDiDikRtxNDRUl7o1jzP82MmCopndnPhCfc6vMzbUYDoRL2CGYIMIFARghNoFdugSaK'
+#os.environ['GENOMELINK_CALLBACK_URL'] = "http://127.0.0.1:5000/callback"
 
 @app.route('/')
 def index():
@@ -76,11 +75,11 @@ def handle_my_custom_event():
     print("send")
     send_sms()
 
-@app.route('/callback')
-def callback():
-    token = genomelink.OAuth.token(request_url=request.url)
-    session['oauth_token'] = token
-    return redirect(url_for(''))
+#@app.route('/callback')
+#def callback():
+#    token = genomelink.OAuth.token(request_url=request.url)
+#    session['oauth_token'] = token
+#    return redirect(url_for(''))
 
 
 if __name__ == '__main__':
