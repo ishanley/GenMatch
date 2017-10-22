@@ -1,10 +1,14 @@
 import genomelink
 import os
 from flask import Flask, render_template, request, redirect, session, url_for
+from twilio.jwt.access_token import AccessToken
+from twilio.jwt.access_token.grants import VideoGrant
 app = Flask(__name__)
 
-print(os.environ['GENOMELINK_CLIENT_ID'])
-print(os.environ['GENOMELINK_CLIENT_SECRET'])
+#print(os.environ['GENOMELINK_CLIENT_ID'])
+#print(os.environ['GENOMELINK_CLIENT_SECRET'])
+
+app.config.from_pyfile('config.py')
 
 
 os.environ['GENOMELINK_CLIENT_ID'] = '4VZK1tAlsGsX9ZKiz9joKPrMG0RNlE9RgmRRq22k'
@@ -20,6 +24,14 @@ def search():
     # get all the form properties
     redirect(url_for('search_results'))
 
+@app.route('/twilio')
+def video():
+    scat = AccessToken(app.config['TWILIO_ACCOUNT_SID'], \
+        app.config['TWILIO_API_KEY'], app.config['TWILIO_API_SECRET'])
+    scat.add_grant(VideoGrant(room='RM123'))
+    token = scat.to_jwt()
+    return render_template('twilio.html', identity="need random", token=token)
+    
     # authorize_url = genomelink.OAuth.authorize_url(scope=['report:eye-color report:beard-thickness report:morning-person report:childhood-intelligence']) #report:beard-thickness report:morning-person
     #
     #
@@ -43,12 +55,12 @@ def search():
 #     session['oauth_token'] = token
 #     return redirect(url_for('index'))
 #
-# if __name__ == '__main__':
-#     # This allows us to use a plain HTTP callback.
-#     import os
-#     os.environ['DEBUG'] = "1"
-#     os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
-#
-#     # Run local server on port 5000.
-#     app.secret_key = os.urandom(24)
-#     app.run(debug=True)
+if __name__ == '__main__':
+    # This allows us to use a plain HTTP callback.
+    import os
+    os.environ['DEBUG'] = "1"
+    os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+
+    # Run local server on port 5000.
+    app.secret_key = os.urandom(24)
+    app.run(debug=True)

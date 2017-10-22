@@ -54,6 +54,7 @@ app.get('/', function(request, response) {
 app.get('/token', function(request, response) {
   var identity = randomName();
 
+// COREY - TWILIO - 718-344-5334
   // Create an access token which we will sign and return to the client,
   // containing the grant we just created.
   var token = new AccessToken(
