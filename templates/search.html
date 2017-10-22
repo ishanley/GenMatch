@@ -37,81 +37,21 @@
                         <h4>Connect</h4>
                     </div>
                 </div>
-
-    <!--        REPEAT FOR ALL ENTRIES-->
-
-                <div class="row search-result-row">
-                    <div class="col span-2-of-4">
-                        <h4 class="search-name">Isaac Shanley</h4>
-                    </div>
-                    <div class="col span-1-of-4">
-                        <h4>90 %</h4>
-                    </div>
-                    <div class="col span-1-of-4">
-                        <a href="#" class="call-sms"><i class="ion-ios-chatbubble-outline icon icon-small"></i></a>
-                        <a href="/twilio"><i class="ion-ios-videocam-outline icon icon-small"></i></a>
-                    </div>
-                </div>
+                
+                {% for report in reports %}
 
                 <div class="row search-result-row">
                     <div class="col span-2-of-4">
-                        <h4 class="search-name">Isaac Shanley</h4>
+                        <h4 class="search-name">{{report.name}}</h4>
                     </div>
                     <div class="col span-1-of-4">
-                        <h4>90 %</h4>
-                    </div>
-                    <div class="col span-1-of-4">
-                        <a href="/twilio"><i class="ion-ios-videocam-outline icon icon-small"></i></a>
-                    </div>
-                </div>
-                
-                <div class="row search-result-row">
-                    <div class="col span-2-of-4">
-                        <h4 class="search-name">Isaac Shanley</h4>
-                    </div>
-                    <div class="col span-1-of-4">
-                        <h4>90 %</h4>
+                        <h4>{{report.similarity}}</h4>
                     </div>
                     <div class="col span-1-of-4">
                         <a href="/twilio"><i class="ion-ios-videocam-outline icon icon-small"></i></a>
                     </div>
                 </div>
-                
-                <div class="row search-result-row">
-                    <div class="col span-2-of-4">
-                        <h4 class="search-name">Isaac Shanley</h4>
-                    </div>
-                    <div class="col span-1-of-4">
-                        <h4>90 %</h4>
-                    </div>
-                    <div class="col span-1-of-4">
-                        <a href="/twilio"><i class="ion-ios-videocam-outline icon icon-small"></i></a>
-                    </div>
-                </div>
-                
-                <div class="row search-result-row">
-                    <div class="col span-2-of-4">
-                        <h4 class="search-name">Isaac Shanley</h4>
-                    </div>
-                    <div class="col span-1-of-4">
-                        <h4>90 %</h4>
-                    </div>
-                    <div class="col span-1-of-4">
-                        <a href="/twilio"><i class="ion-ios-videocam-outline icon icon-small"></i></a>
-                    </div>
-                </div>
-                
-                <div class="row search-result-row">
-                    <div class="col span-2-of-4">
-                        <h4 class="search-name">Isaac Shanley</h4>
-                    </div>
-                    <div class="col span-1-of-4">
-                        <h4>90 %</h4>
-                    </div>
-                    <div class="col span-1-of-4">
-                        <a href="/twilio"><i class="ion-ios-videocam-outline icon icon-small"></i></a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </section>
     </body>
