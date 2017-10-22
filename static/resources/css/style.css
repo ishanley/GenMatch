@@ -340,34 +340,28 @@ input[type=submit] {
 .search-result-row {
     padding: 6px 20px;
     text-align: center;
+    margin-bottom: 15px;
+/*    width: 90%;*/
 }
 
 .header-row h4 {
     color: #2ecc71;
     font-size: 110%;
-    margin-bottom: 10px;
 }
 
 .search-result-row {
-    margin-bottom: 15px;
     border-radius: 10px;
     background-color: #d4d4d4;
     box-shadow: 0 2px 2px #efefef;
-/*    position: relative;*/
-}
-
-.search-name {
-    text-align: left;
 }
 
 .search-result-row h4 {
     height: 50px;
     line-height: 50px;
-/*
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-*/
+}
+
+.search-name {
+    text-align: left;
 }
 
 /* -------------------------------------------------- */
