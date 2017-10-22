@@ -6,6 +6,8 @@ from twilio.jwt.access_token.grants import VideoGrant
 from randomname import random_user
 from docusign import docusign
 
+import traits
+
 app = Flask(__name__)
 
 #print(os.environ['GENOMELINK_CLIENT_ID'])
@@ -28,7 +30,9 @@ def search():
     if request.method == 'post':
         name = request.form.get('name')
         phone = request.form.get('phone')
-        typ = request.form.get('type')
+        trait_type = request.form.get('type')
+        
+        
         opp = request.form.get('opp')
         
         docusign()
@@ -36,14 +40,14 @@ def search():
         authorize_url = genomelink.OAuth.authorize_url(scope=['report:eye-color report:beard-thickness report:morning-person report:childhood-intelligence'])
 
         # Fetching a protected resource using an OAuth2 token if exists.
-        reports = []
+        p1 = []
         if session.get('oauth_token'):
             for name in ['eye-color', 'beard-thickness', 'morning-person', 'childhood-intelligence']:
-                reports.append(genomelink.Report.fetch(name=name, population='european', token=session['oauth_token']))
+                p1.append(genomelink.Report.fetch(name=name, population='european', token=session['oauth_token']))
 
-    #    return render_template('search.html', reports=reports)
+    #    return render_template('search.html', reports=traits.get_reports(p1))
 
-    return render_template('search.html')
+    return render_template('search.html', reports=get_reports(p1, trait_type))
 
 @app.route('/twilio')
 def twilio():
