@@ -22,27 +22,27 @@
 </head>
 <body>
     <section class="section-twilio">
-    <div class="row">
-        <div id="controls">
-            <div class="col span-1-of-2">
+<!--    <div class="row">-->
+        <div id="controls" class="row">
+            <div class="col span-1-of-2 fixed-left">
                 <h4 class="title">Room Name:</h4>
                 <div id="room-controls">
-                    <input id="room-name" type="text" placeholder="Enter a room name" style="width: 75%;"/>
+                    <input id="room-name" type="text" placeholder="Enter a room name" class="room-input"/>
                     <a id="button-join" class="btn btn-full btn-twilio" href="#">Join Room</a>
                     <a id="button-leave" class="btn btn-full btn-twilio" href="#">Leave Room</a>
                 </div>
                 <div id="log" class="twilio-log"></div>
             </div>
-            <div class="col span-1-of-2">
+            <div class="col span-1-of-2 media-videos">
                 <h4 class="title hello">My Display</h4>
                 <div id="preview" class="video-preview">
                     <div id="local-media" class="video"></div>
                 </div>
                 <a id="button-preview" class="btn btn-full btn-twilio btn-preview" href="#">Preview My Camera</a>
-                <div id="remote-media"></div>
+                <div id="remote-media" class="video"></div>
             </div>
         </div>
-    </div>
+<!--    </div>-->
     </section>
 
 <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->

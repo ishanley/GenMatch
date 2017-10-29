@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);
 
+
+.section-twilio {
+    padding-bottom: 0;
+}
 body,
 p {
   padding: 0;
@@ -11,21 +15,18 @@ body {
 }
 
 div#remote-media {
-  height: 43%;
-  width: 100%;
-  background-color: #fff;
-  text-align: center;
   margin: 20px auto;
   border-radius: 10px;
 }
 
-div#remote-media video {
-  margin: 3em 2em;
-  height: 70%;
-  max-width: 27% !important;
-  background-color: #2ecc71;
-  background-repeat: no-repeat;
-  border-radius: 10px;
+.fixed-left {
+    position: fixed;
+    top:80px;
+    width: 38%;
+}
+
+.media-videos {
+    float: right;
 }
 
 .title {
@@ -37,6 +38,10 @@ div#remote-media video {
 .hello {
     text-align: center;
     margin-top:65px;
+}
+
+.room-input {
+    width: 80% !important;
 }
 
 .btn {
@@ -55,11 +60,12 @@ div#remote-media video {
 
 .btn-preview {
     margin-left: 50%;
+    margin-bottom: 20px;
     transform: translateX(-50%);
 }
 
 .div-preview {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     text-align: center;
 }
@@ -94,14 +100,16 @@ div#controls div#room-controls a#button-leave {
 .video {
     width: 330px;
     height: 247px;
+    border-radius: 10px;
 }
 
 .video video {
+    width: 330px;
     border-radius: 10px;
 }
 
 .twilio-log {
-  width: 75%;
+  width: 80%;
   height: 270px;
   margin-top: 40px;
   text-align: left;

@@ -196,7 +196,9 @@ input[type=submit]:active {
 header {
     background: #2ecc71; /* fallback for old browsers */
     background: -webkit-linear-gradient(to bottom, #229552, #2ecc71); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #229552, #2ecc71); /* #11998e, #38ef7d */
+    background: linear-gradient(to bottom, #229552, #2ecc71);
+    position: relative;
+    /* #11998e, #38ef7d */
 /*    background-color: #2ecc71;*/
 /*
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(img/header_background.jpg);
@@ -212,38 +214,32 @@ header {
 
 .hero-text-box {
     position: absolute;
-/*
-    width: 1140px;
-    height: auto;
-*/
     top: 45%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 50%;
     text-align: center;
 }
 
 .hero-text-box h1 {
-    position: absolute;
     height: 130px;
-    top: 50%;
-    margin-top: -75px;
-    right: 10%;
+    margin-left: 30px;
+    margin-bottom: 0;
+    transform: translateY(-33px);
+    display: inline-block;
 }
 
 .front-logo {
     height: 130px;
-    float: left;
-    margin-left: 10%;
+/*    float: left;*/
     border-radius: 12px;
+    display: inline-block;
 }
 
 
 .hero-text-box p {
     color: #fff;
     font-size: 140%;
-    margin-top: 35px;
 }
 
 .down-arrow {
