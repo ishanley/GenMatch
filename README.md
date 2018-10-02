@@ -1,5 +1,5 @@
-# GenMatch
-A matching service powered by genomic data
+The deployed site can be visited [here](genmatch.tech).
+The devpost blog can be visited [here](https://devpost.com/software/genmatch).
 
 ### Installation
 After downloading the zip, create a virtual environment by running 
@@ -23,9 +23,3 @@ You can then run the app locally using
 ```
 $ flask run
 ```
-
-### Examples
-
-
-
-### API
