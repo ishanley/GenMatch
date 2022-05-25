@@ -17,7 +17,7 @@ MarkupSafe==1.0
 names==0.3.0
 py-oauth2==0.0.10
 pycparser==2.19
-PyJWT==1.6.4
+PyJWT==2.4.0
 PySocks==1.6.8
 python-dateutil==2.7.3
 python-engineio==2.3.1
