@@ -12,7 +12,7 @@ httplib2==0.11.3
 idna==2.7
 itsdangerous==0.24
 Jinja2==2.10
-jwcrypto==0.5.0
+jwcrypto==1.4
 MarkupSafe==1.0
 names==0.3.0
 py-oauth2==0.0.10
